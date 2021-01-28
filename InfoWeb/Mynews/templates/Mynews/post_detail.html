@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}뉴스 상세정보{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h2>{{ object.title }}</h2>
+
+    <!-- previous or next post link -->
+    <p class="other_posts">
+        <a href="{{ object.get_previous_post.get_absolute_url }}">
+            {{ object.get_previous_post }}
+        </a>
+        |
+        <a href="{{ object.get_next_post.get_absolute_url }}">
+            {{ object.get_next_post }}
+        </a>
+    </p>
+
+    <!-- date -->
+
+    <br/>
+    <!-- post content -->
+    <div class="body">
+        {{ object.article|linebreaks }}
+    </div>
+</div>
+{% endblock %}

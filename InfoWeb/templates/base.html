@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <title>{% block title %}스크래핑 홈페이지{% endblock %}</title>
+
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/base.css' %}{% endblock %}" />
+        <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+
+    </head>
+
+    <body>
+
+        <div id="header">
+            <h2 class="maintitle">뉴스와 주식데이터를 수집합니다</h2>
+            <h4 class="welcome">Welcome, <a href="#">OOO</a> /
+                <a href="#">Change Password</a> /
+                <a href="#">Logout</a>
+            </h4>
+        </div>
+
+        <div id="menu">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'Mynews:index' %}">뉴스 리스트</a></li>
+            <li><a href="{% url 'Mynews:search' %}">Search</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        </div>
+
+        {% block content %}{% endblock %}
+
+        {% block footer %}{% endblock %}
+
+    </body>
+
+</html>
