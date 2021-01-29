@@ -15,4 +15,5 @@ urlpatterns = [
 
     # Search: /search/ -> http://127.0.0.1:8000/blog/search/
     path('search/', SearchFormView.as_view(), name='search'),
+    path('news/refresh/', RefreshFormView.as_view(), name='refresh'),
 ]

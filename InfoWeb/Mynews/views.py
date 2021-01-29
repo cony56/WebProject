@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 
-from Mynews.forms import PostSearchForm
+from Mynews.forms import PostSearchForm, RefreshForm
 from Mynews.models import Post
 from django.views.generic.edit import FormView
 from django.db.models import Q
@@ -31,3 +31,11 @@ class SearchFormView(FormView):
         context['search_list'] = post_list
 
         return render(self.request, self.template_name, context)
+
+class RefreshFormView(FormView):
+    template_name = "news/news_all.html"
+    form_class = RefreshForm
+    success_url = '/post_list'
+    context_object_name = "posts" 
+
+    paginate_by = 10
