@@ -4,7 +4,11 @@
 
 {% block content %}
 <div id="content">
-    <h1>Blog List</h1>
+    <h1>뉴스 리스트</h1>
+    <form action="/Mynews/refresh" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Refresh">
+    </form>
 
     <!-- display blog list -->
     {% for post in posts %}

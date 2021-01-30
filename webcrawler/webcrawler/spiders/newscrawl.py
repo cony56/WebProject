@@ -3,6 +3,7 @@ from webcrawler.items import WebcrawlerItem
 import sys
 from scrapy.http import Request
 
+
 URL = 'http://news.naver.com/main/list.nhn?mode=LS2D&sid2=258&sid1=101&mid=shm&date=20210127&page={}'
 start_page = 1
 
@@ -49,6 +50,7 @@ class NewscrawlSpider(scrapy.Spider):
             item['writer'] = writers[idx]
             item['article'] = articles[idx]
             item['href'] = hrefs[idx]
+            item['slug'] = idx
 
             items.append(item)
 

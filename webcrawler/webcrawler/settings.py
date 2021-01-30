@@ -85,7 +85,8 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-
-FEED_FORMAT = "json"
-FEED_URI = 'my_news.json'
-FEED_EXPORT_ENCODING = 'utf-8'
+ITEM_PIPELINES = {
+    'webcrawler.pipelines.WebcrawlerPipeline': 100,}
+# FEED_FORMAT = "json"
+# FEED_URI = 'my_news.json'
+# FEED_EXPORT_ENCODING = 'utf-8'
